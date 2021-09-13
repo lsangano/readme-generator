@@ -34,3 +34,8 @@ No additional testing has been performed.
 
 Questions
 If you have any questions, please feel free to reach out at ndutilae@gmail.com.
+type: "list",
+            name: "license",
+            message: "Which licenses do you need?",
+            choices: [
+            "MIT", "Apache 2.0", "GNU", "Mozilla Public License 2.0",

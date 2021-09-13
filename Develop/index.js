@@ -6,7 +6,7 @@ const  writeFilesAsync = util.promisify(fs.writeFile);
 
 
 //Inquirer questions asked through the console to be used to generate read me
-  const questions = () => {
+  const promptUser= () => {
     return inquirer.prompt ([  
         {
             type: "input",
@@ -33,7 +33,7 @@ const  writeFilesAsync = util.promisify(fs.writeFile);
             name: "license",
             message: "Which licenses do you need?",
             choices: [
-            "MIT", "Apache 2.0", "GPLv 3.0", "Mozilla Public License 2.0", 
+            "MIT", "Apache 2.0", "GNU", "Mozilla Public License 2.0", 
          ],
         },
         {
@@ -62,7 +62,7 @@ const  writeFilesAsync = util.promisify(fs.writeFile);
   };
 
 const init = () => {
-   questions()
+   promptUser()
       .then((answers) => writeFilesAsync("README.md", generateMarkdown(answers)))
       .then(() => console.log("Successfully creaded README.md"))
       .catch((err) => console.error(err));
